@@ -24,4 +24,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
+
+    // OkHttp
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile files('src/main/libs/gson-2.2.2.jar')
+
 }
