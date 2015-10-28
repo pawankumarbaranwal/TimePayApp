@@ -48,4 +48,8 @@
     <string name="already_account">Already have an account ?</string>
     <string name="or">OR</string>
 
+
+    // Urls
+    <string name="getOrgType">http://124.153.111.70:8080/project-1.0.0-BUILD-SNAPSHOT/getOrgType</string>
+
 </resources>

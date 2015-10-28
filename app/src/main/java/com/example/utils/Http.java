@@ -46,6 +46,11 @@ public class Http {
         requestBody = RequestBody.create(mediaType, parameters);
     }
 
+    public void requestGETBuilder(String URL){
+        builder = new Request.Builder();
+        builder.url(URL);
+        request = builder.build();
+    }
     public void requestPOSTBuilder(String URL){
         builder = new Request.Builder();
         builder.url(URL).post(requestBody);
