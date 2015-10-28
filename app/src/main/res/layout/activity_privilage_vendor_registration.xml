@@ -1,0 +1,210 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+                <!--<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/GPR_header"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/etRegisteredCompanyID"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:ems="10"
+                            android:hint="@string/registered_companyID_hint"
+                            android:inputType="text" />
+
+                        <TextView
+                            android:id="@+id/tvPVRCompanyID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="0dp"
+                            android:ems="5"
+                            android:textColor="#0000FF"
+                            android:text="@string/company_id_hint"
+                            android:inputType="text"
+                            android:gravity="right"
+                            android:layout_marginRight="5dp"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"></RelativeLayout>
+
+                    <!--<Button
+                        android:id="@+id/btnPVRCompanyID"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:ems="10"
+                        android:text="@string/company_id_hint"
+                        android:inputType="text" />-->
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etShopPublicBrandName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/shopPublic_brandName_hint"
+                    android:inputType="textPersonName"
+                    android:minEms="20"
+                    android:minLines="2" />
+
+                <EditText
+                    android:id="@+id/etAccountNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="@string/account_no_hint"
+                    android:inputType="number" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/etPVRIFSCCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:ems="10"
+                            android:hint="@string/ifsc_code_hint"
+                            android:inputType="text" />
+
+                        <TextView
+                            android:id="@+id/tvPVRIFSCCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="0dp"
+                            android:ems="4"
+                            android:text="@string/ifsc_code_hint"
+                            android:inputType="text"
+                            android:textColor="#0000FF"
+                            android:layout_marginRight="5dp"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etPANNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="@string/pan_hint"
+                    android:inputType="text" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="5dp">
+
+                <Button
+                    android:id="@+id/btnUploadPAN"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_gravity="center_vertical"
+                    android:ems="10"
+                    android:text="@string/pan_upload" />
+
+                <ImageView
+                    android:id="@+id/ivPANImage"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:src="@drawable/abc_ab_share_pack_mtrl_alpha" />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_gateway_link"
+                android:id="@+id/paymentGatewayLink"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:textColor="#0000FF"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="5dp"
+                android:layout_gravity="center|bottom">
+                <Button
+                    android:id="@+id/bContinue"
+                    android:text="@string/signup_continue_btn"
+                    style="@style/BtContinue"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

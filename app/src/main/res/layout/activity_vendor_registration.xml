@@ -1,0 +1,231 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+                <!--<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/GPR_header"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />-->
+
+                <EditText
+                    android:id="@+id/etRegisteredCompanyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:hint="@string/registered_companyName_hint"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etShopPublicBrandName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/shopPublic_brandName_hint"
+                    android:inputType="textPersonName"
+                    android:minEms="20"
+                    android:minLines="2" />
+
+                <EditText
+                    android:id="@+id/etAccountNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="@string/account_no_hint"
+                    android:inputType="number" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingRight="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/etPVRIFSCCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:ems="10"
+                            android:hint="@string/ifsc_code_hint"
+                            android:inputType="text" />
+
+                        <TextView
+                            android:id="@+id/tvPVRIFSCCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="0dp"
+                            android:ems="4"
+                            android:text="@string/ifsc_code_hint"
+                            android:inputType="text"
+                            android:textColor="#0000FF"
+                            android:layout_marginRight="5dp"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/etPANNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="@string/pan_hint"
+                    android:inputType="text" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingRight="5dp">
+
+                    <Button
+                        android:id="@+id/btnUploadPAN"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_gravity="center_vertical"
+                        android:ems="10"
+                        android:text="@string/pan_upload" />
+
+                    <ImageView
+                        android:id="@+id/ivPANImage"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:src="@drawable/abc_ab_share_pack_mtrl_alpha" />
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_gateway_link"
+                    android:id="@+id/paymentGatewayLink"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/cbIAgree"
+                    android:textSize="18dp"
+                    android:textColor="#0000FF"/>
+                <!--Card Details 1-->
+               <!-- <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="3dp"
+                    android:text="@string/card_subheader"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />-->
+
+               <!-- <EditText
+                    android:id="@+id/etCardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:maxLength="23"
+                    android:ems="10"
+                    android:hint="@string/cardnumber_hint"
+                    android:inputType="number" />-->
+
+                <!--<EditText
+                    android:id="@+id/etCardFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="Name on card" />-->
+                <!--need to auto complete from full name field-->
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvExpiryCard"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:text="@string/card_expiry_date" />
+
+                    <TextView
+                        android:id="@+id/tvExpiryMonth"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="40dp"
+                        android:text="@string/expiry_month" />
+
+                    <TextView
+                        android:id="@+id/tvExpiryYear"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/expiry_year" />
+                </LinearLayout>-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center|bottom"
+                android:paddingBottom="5dp">
+
+                <Button
+                    android:id="@+id/bContinue"
+                    style="@style/BtContinue"
+                    android:text="@string/signup_continue_btn" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

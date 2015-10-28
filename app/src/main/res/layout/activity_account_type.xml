@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/choose_account_header"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center" />-->
+
+            <!--<<Spinner
+                android:id="@+id/spAccountType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:spinnerMode="dropdown" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/rdGroup"
+                        >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="General Public Registration"
+                        android:id="@+id/rbGPReistration"
+                        android:checked="true"
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vendor Registration"
+                        android:id="@+id/rbVReistration"
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Privilege Vendor Registration"
+                        android:id="@+id/rbPVReistration"
+                        android:textSize="20dp"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:id="@+id/cbIAgree"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/IAgree_Hint"
+                        android:id="@+id/tvIAgree"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_toRightOf="@id/cbIAgree"
+                        android:textSize="18dp"
+                        android:textColor="#0000FF"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="5dp"
+                android:gravity="bottom"
+                android:layout_gravity="center|bottom">
+            <Button
+                android:id="@+id/bContinue"
+                android:text="@string/signup_continue_btn"
+                style="@style/BtContinue"
+               />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
