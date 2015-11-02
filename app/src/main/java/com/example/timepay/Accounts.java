@@ -10,6 +10,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,12 +21,21 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pojo.UsersRegistrationStatus;
+import com.example.utils.OnTaskCompleted;
 import com.example.utils.SharedPreferenceHandler;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-public class Accounts extends ActionBarActivity implements View.OnClickListener{
+import java.util.Map;
+
+public class Accounts extends AppCompatActivity implements View.OnClickListener,OnTaskCompleted{
     EditText emailAddressET, phoneNumberET;
     RelativeLayout continueAsGPR,continueAsVR,continueAsPVR;
     String syncedMail;
+    String onClick;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,41 +118,22 @@ public class Accounts extends ActionBarActivity implements View.OnClickListener{
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_accounts, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onClick(View v) {
         Validator validator=new Validator();
         Intent intent;
-        String message= validator.validateAccountDetatis(emailAddressET.getText()+"",phoneNumberET.getText()+"");
+        OkHttpPostHandler handler = new OkHttpPostHandler(this,this,"http://124.153.111.70:8080/project-1.0.0-BUILD-SNAPSHOT/registration","register");
+        String message= validator.validateAccountDetatis(emailAddressET.getText() + "", phoneNumberET.getText() + "");
         Log.i("email", message);
         if (message.equals("Completed")) {
             if (v == continueAsGPR) {
-                intent = new Intent(getApplicationContext(), GeneralPublicRegistration.class);
-                startActivity(intent);
+                handler.execute(emailAddressET.getText().toString(), phoneNumberET.getText().toString());
+                onClick="continueAsGPR";
             } else if (v == continueAsVR) {
-                intent = new Intent(getApplicationContext(), VendorRegistration.class);
-                startActivity(intent);
+                handler.execute(emailAddressET.getText().toString(), phoneNumberET.getText().toString());
+                onClick="continueAsVR";
             } else if (v == continueAsPVR) {
-                intent = new Intent(getApplicationContext(), PrivilageVendorRegistration.class);
-                startActivity(intent);
+                handler.execute(emailAddressET.getText().toString(), phoneNumberET.getText().toString());
+                onClick="continueAsPVR";
             }
         }else{
             Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
@@ -184,8 +175,34 @@ public class Accounts extends ActionBarActivity implements View.OnClickListener{
         }
     }
 
-
+    @Override
+    public void onTaskCompleted(String response) {
+        UsersRegistrationStatus usersRegistrationStatus=new UsersRegistrationStatus();
+        Intent intent =new Intent();
+        try {
+            if (response != null && response != "") {
+                usersRegistrationStatus = new Gson().fromJson(response, UsersRegistrationStatus.class);
+                if (usersRegistrationStatus.getStatusCode().equals("400")) {
+                    throw new Exception(usersRegistrationStatus.getStatusMessage() + "");
+                } else {
+                    if (onClick.equals("continueAsGPR")) {
+                        intent = new Intent(this, GeneralPublicRegistration.class);
+                    }else if (onClick.equals("continueAsVR")) {
+                        intent = new Intent(this, VendorRegistration.class);
+                    }else if (onClick.equals("continueAsPVR")) {
+                        intent = new Intent(this, PrivilageVendorRegistration.class);
+                    }
+                        startActivity(intent);
+                }
+            } else if (response == null) {
+                throw new Exception("Technical error");
+            }
+        } catch (Exception e) {
+            if (e.getMessage().contains("PreparedStatementCallback")){
+                ShowError.displayError(this, "Email id should be less than 25 characters");
+            }else{
+            ShowError.displayError(this, e.getMessage());
+            }
+        }
+    }
 }
-
-
-

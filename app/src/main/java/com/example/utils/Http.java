@@ -3,6 +3,8 @@ package com.example.utils;
 /**
  * Created by Pawan on 10/29/2015.
  */
+import android.util.Log;
+
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -44,6 +46,7 @@ public class Http {
 
     public void requestBody(MediaType mediaType, String parameters) {
         requestBody = RequestBody.create(mediaType, parameters);
+        Log.i("requestBody",requestBody.toString());
     }
 
     public void requestGETBuilder(String URL){
@@ -53,7 +56,9 @@ public class Http {
     }
     public void requestPOSTBuilder(String URL){
         builder = new Request.Builder();
-        builder.url(URL).post(requestBody);
+        builder
+        .addHeader("Content-Type", "application/json")
+        .url(URL).post(requestBody);
         request = builder.build();
     }
 
@@ -61,6 +66,16 @@ public class Http {
         try {
             return httpClient.newCall(request).execute();
         } catch (IOException e) {
+            //TODO Change this from null to a custom response class
+            return null;
+        }
+    }
+    public Response responsePostExecute() {
+        try {
+            Log.i("ExceptionMessage1","1");
+            return httpClient.newCall(request).execute();
+        } catch (Exception e) {
+            Log.i("ExceptionMessage",e.getMessage()+"");
             //TODO Change this from null to a custom response class
             return null;
         }

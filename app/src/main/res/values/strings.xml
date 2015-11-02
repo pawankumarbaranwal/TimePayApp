@@ -51,5 +51,6 @@
 
     // Urls
     <string name="getOrgType">http://124.153.111.70:8080/project-1.0.0-BUILD-SNAPSHOT/getOrgType</string>
+    <string name="ok">OK</string>
 
 </resources>
