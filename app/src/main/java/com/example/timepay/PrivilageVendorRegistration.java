@@ -40,6 +40,7 @@ public class PrivilageVendorRegistration extends ActionBarActivity implements Vi
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        Log.i("UsersRegistration33","pawan");
         setContentView(R.layout.activity_privilage_vendor_registration);
         initialize();
         setListener();
