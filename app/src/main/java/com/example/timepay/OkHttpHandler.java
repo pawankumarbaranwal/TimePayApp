@@ -11,7 +11,7 @@ import com.example.utils.Http;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Response;
 
-public class OkHttpHandler extends AsyncTask<String, Void, String> {
+public class  OkHttpHandler extends AsyncTask<String, Void, String> {
     private Context context;
     private String responseString;
     private Http http = null;

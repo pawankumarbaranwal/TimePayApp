@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import com.example.timepay.OkHttpHandler;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pojo.UsersRegistrationStatus;
+import com.example.utils.OkHttpPostHandler;
 import com.example.utils.OnTaskCompleted;
 import com.example.utils.SharedPreferenceHandler;
 import com.google.gson.Gson;
@@ -121,7 +123,7 @@ public class Accounts extends AppCompatActivity implements View.OnClickListener,
     public void onClick(View v) {
         Validator validator=new Validator();
         Intent intent;
-        OkHttpPostHandler handler = new OkHttpPostHandler(this,this,"http://124.153.111.70:8080/project-1.0.0-BUILD-SNAPSHOT/registration","register");
+        OkHttpPostHandler handler = new OkHttpPostHandler(this, this, "http://124.153.111.70:8080/project-1.0.0-BUILD-SNAPSHOT/registration", "register");
         String message= validator.validateAccountDetatis(emailAddressET.getText() + "", phoneNumberET.getText() + "");
         Log.i("email", message);
         if (message.equals("Completed")) {
